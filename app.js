@@ -9,7 +9,7 @@ myApp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'pages/main.html',
             controller: 'mainController'
         })
-        .when('/second', {
+        .when('/second/:num?', {
             templateUrl: 'pages/second.html',
             controller: 'secondController'
         })
@@ -21,9 +21,9 @@ myApp.controller('mainController', ['$scope', '$log',
     }
 ]);
 
-myApp.controller('secondController', ['$scope', '$log', 
-    function($scope, $log) {
-        $scope.name = 'second';
+myApp.controller('secondController', ['$scope', '$log', '$routeParams',
+    function($scope, $log, $routeParams) {
 
+        $scope.num = $routeParams.num || 1;
     }
 ]);
